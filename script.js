@@ -60,7 +60,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Typing effect
-const typedWords = ["UX Designer.", "Problem Solver.", "Creative Thinker."];
+const typedWords = ["Final Year Undergrad.", "Aspring Full Stack developer.", "Tech and Business Entusiast."];
 let i = 0, j = 0, currentWord = "", isDeleting = false;
 
 function type() {

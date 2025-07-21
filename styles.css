@@ -345,3 +345,49 @@ section, header, .site-footer, .timeline-item, .work-card, .chat {
 
 
 
+/* Float animation for hero and cards */
+.float {
+  animation: floatY 3s ease-in-out infinite;
+}
+
+@keyframes floatY {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Glow effect */
+.glow-hover:hover {
+  box-shadow: 0 0 12px var(--accent), 0 0 24px rgba(43, 27, 20, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Typing animation style */
+.typing-text {
+  font-size: 1.1rem;
+  color: var(--text-sub);
+  min-height: 30px;
+  font-family: monospace;
+  white-space: nowrap;
+  border-right: 2px solid var(--accent);
+  overflow: hidden;
+}
+
+/* Back to top */
+#backToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--accent);
+  color: white;
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+}
+#backToTop:hover {
+  background-color: #1e120b;
+}

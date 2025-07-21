@@ -59,4 +59,54 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Typing effect
+const typedWords = ["UX Designer.", "Problem Solver.", "Creative Thinker."];
+let i = 0, j = 0, currentWord = "", isDeleting = false;
+
+function type() {
+  if (i < typedWords.length) {
+    const fullWord = typedWords[i];
+
+    if (!isDeleting) {
+      currentWord = fullWord.substring(0, j++);
+    } else {
+      currentWord = fullWord.substring(0, j--);
+    }
+
+    document.getElementById("typed").textContent = currentWord;
+
+    if (!isDeleting && j === fullWord.length) {
+      isDeleting = true;
+      setTimeout(type, 1200);
+    } else if (isDeleting && j === 0) {
+      isDeleting = false;
+      i = (i + 1) % typedWords.length;
+      setTimeout(type, 300);
+    } else {
+      setTimeout(type, isDeleting ? 60 : 100);
+    }
+  }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  type();
+});
+
+// Back to top button logic
+const backToTopBtn = document.createElement('button');
+backToTopBtn.id = 'backToTop';
+backToTopBtn.innerHTML = '↑';
+document.body.appendChild(backToTopBtn);
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 400) {
+    backToTopBtn.style.display = "block";
+  } else {
+    backToTopBtn.style.display = "none";
+  }
+});
+
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
